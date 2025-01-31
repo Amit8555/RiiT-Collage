@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiiT</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="site-title">RiiT</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-tab active">
+                    <i class="fas fa-home"></i> Home
+                </a></li>
+                <li><a href="#courses" class="nav-tab">
+                    <i class="fas fa-graduation-cap"></i> Our Courses
+                </a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-tab">
+                        <i class="fas fa-tasks"></i> Management
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="attendance.html">
+                            <i class="fas fa-user-check"></i> Attendance
+                        </a></li>
+                        <li><a href="exam.html">
+                            <i class="fas fa-edit"></i> Exam Portal
+                        </a></li>
+                        <li><a href="#teacher-management">
+                            <i class="fas fa-chalkboard-teacher"></i> Teacher Management
+                        </a></li>
+                    </ul>
+                </li>
+                <li><a href="#contact" class="nav-tab">
+                    <i class="fas fa-envelope"></i> Contact
+                </a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="showTab('idCard')">
+                        <i class="fas fa-id-card"></i> Student ID Card
+                    </a>
+                </li>
+            </ul>
+            <div class="auth-section">
+                <div class="student-buttons">
+                    <a href="student-registration.html" class="auth-btn student-reg-btn">
+                        <i class="fas fa-user-graduate"></i> Student Register
+                    </a>
+                    <a href="student-login.html" class="auth-btn student-login-btn">
+                        <i class="fas fa-sign-in-alt"></i> Student Login
+                    </a>
+                </div>
+                <div class="teacher-buttons">
+                    <a href="teacher-signup.html" class="auth-btn teacher-signup-btn">
+                        <i class="fas fa-chalkboard-teacher"></i> Teacher Register
+                    </a>
+                    <a href="teacher-login.html" class="auth-btn teacher-login-btn">
+                        <i class="fas fa-user-tie"></i> Teacher Login
+                    </a>
+                </div>
+                <div class="auth-buttons">
+                    <button onclick="showLoginForm()" class="auth-btn">
+                        <i class="fas fa-sign-in-alt"></i> Student Login
+                    </button>
+                    <button onclick="showRegistrationForm()" class="auth-btn">
+                        <i class="fas fa-user-plus"></i> Student Register
+                    </button>
+                    <button onclick="showTeacherRegistration()" class="auth-btn teacher-register">
+                        <i class="fas fa-chalkboard-teacher"></i> Teacher Register
+                    </button>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Course Modal -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-graduation-cap"></i> Our Courses</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="courses-grid">
+                    <!-- BCA Card -->
+                    <div class="course-card" data-course="bca">
+                        <div class="course-icon">
+                            <i class="fas fa-laptop-code"></i>
+                            <h3>BCA</h3>
+                        </div>
+                        <div class="course-details">
+                            <h3>Bachelor of Computer Applications</h3>
+                            <div class="course-info">
+                                <span><i class="fas fa-clock"></i> Duration: 3 Years</span>
+                                <span><i class="fas fa-book"></i> Semesters: 6</span>
+                            </div>
+                            <div class="course-description">
+                                <p>A comprehensive program designed to create skilled IT professionals. Learn:</p>
+                                <ul>
+                                    <li>Programming & Software Development</li>
+                                    <li>Database Management</li>
+                                    <li>Web Technologies</li>
+                                    <li>Network & System Administration</li>
+                                </ul>
+                            </div>
+                            <a href="courses/bca.html" class="view-course-btn">
+                                <i class="fas fa-arrow-right"></i> View Full Details
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- MCA Card -->
+                    <div class="course-card" data-course="mca">
+                        <div class="course-icon">
+                            <i class="fas fa-server"></i>
+                            <h3>MCA</h3>
+                        </div>
+                        <div class="course-details">
+                            <h3>Master of Computer Applications</h3>
+                            <div class="course-info">
+                                <span><i class="fas fa-clock"></i> Duration: 2 Years</span>
+                                <span><i class="fas fa-book"></i> Semesters: 4</span>
+                            </div>
+                            <div class="course-description">
+                                <p>Advanced program for aspiring software professionals. Specializations in:</p>
+                                <ul>
+                                    <li>Advanced Software Engineering</li>
+                                    <li>Cloud Computing & DevOps</li>
+                                    <li>Artificial Intelligence & ML</li>
+                                    <li>Data Science & Analytics</li>
+                                </ul>
+                            </div>
+                            <a href="courses/mca.html" class="view-course-btn">
+                                <i class="fas fa-arrow-right"></i> View Full Details
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- BBA Card -->
+                    <div class="course-card" data-course="bba">
+                        <div class="course-icon">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>BBA</h3>
+                        </div>
+                        <div class="course-details">
+                            <h3>Bachelor of Business Administration</h3>
+                            <div class="course-info">
+                                <span><i class="fas fa-clock"></i> Duration: 3 Years</span>
+                                <span><i class="fas fa-book"></i> Semesters: 6</span>
+                            </div>
+                            <div class="course-description">
+                                <p>Comprehensive business management program covering:</p>
+                                <ul>
+                                    <li>Marketing Management</li>
+                                    <li>Financial Management</li>
+                                    <li>Human Resources</li>
+                                    <li>Business Strategy</li>
+                                </ul>
+                            </div>
+                            <a href="courses/bba.html" class="view-course-btn">
+                                <i class="fas fa-arrow-right"></i> View Full Details
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- MBA Card -->
+                    <div class="course-card" data-course="mba">
+                        <div class="course-icon">
+                            <i class="fas fa-briefcase"></i>
+                            <h3>MBA</h3>
+                        </div>
+                        <div class="course-details">
+                            <h3>Master of Business Administration</h3>
+                            <div class="course-info">
+                                <span><i class="fas fa-clock"></i> Duration: 2 Years</span>
+                                <span><i class="fas fa-book"></i> Semesters: 4</span>
+                            </div>
+                            <div class="course-description">
+                                <p>Advanced business program with specializations in:</p>
+                                <ul>
+                                    <li>Finance & Investment</li>
+                                    <li>Marketing & Brand Management</li>
+                                    <li>International Business</li>
+                                    <li>Business Analytics</li>
+                                </ul>
+                            </div>
+                            <a href="courses/mba.html" class="view-course-btn">
+                                <i class="fas fa-arrow-right"></i> View Full Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to RiiT</h1>
+            <h2>Raniganj Institute of Information Technology</h2>
+            <p>Empowering students with quality education and personalized learning experience</p>
+            <button class="cta-button">Get Started</button>
+        </div>
+    </section>
+
+    <section id="courses" class="courses">
+        <h2>Our Courses</h2>
+        <div class="course-grid">
+            <div class="course-card">
+                <i class="fas fa-code"></i>
+                <h3>C Programming Language</h3>
+                <p>Master the fundamentals of C programming with hands-on practice and real-world projects.</p>
+                <ul class="course-highlights">
+                    <li>Basic to Advanced Concepts</li>
+                    <li>Data Structures</li>
+                    <li>Practical Projects</li>
+                </ul>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-comments"></i>
+                <h3>English Communication</h3>
+                <p>Enhance your English speaking, writing, and presentation skills for professional success.</p>
+                <ul class="course-highlights">
+                    <li>Speaking Skills</li>
+                    <li>Business Writing</li>
+                    <li>Presentation Skills</li>
+                </ul>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-calculator"></i>
+                <h3>Financial Accounting</h3>
+                <p>Learn essential accounting principles and financial management techniques.</p>
+                <ul class="course-highlights">
+                    <li>Basic Accounting</li>
+                    <li>Financial Statements</li>
+                    <li>Business Finance</li>
+                </ul>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-desktop"></i>
+                <h3>Office Automation</h3>
+                <p>Master essential office software and boost your productivity with modern tools.</p>
+                <ul class="course-highlights">
+                    <li>MS Office Suite</li>
+                    <li>Document Management</li>
+                    <li>Automation Tools</li>
+                </ul>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>E-commerce</h3>
+                <p>Learn to build and manage successful online businesses in the digital age.</p>
+                <ul class="course-highlights">
+                    <li>Online Business</li>
+                    <li>Digital Marketing</li>
+                    <li>Payment Systems</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <form id="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="registration" class="registration">
+        <h2>Student Registration</h2>
+        <div class="registration-container">
+            <form id="registration-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="email-input-group">
+                        <input type="email" id="email" name="email" required>
+                        <button type="button" id="sendEmailOtpBtn" class="send-otp-btn">
+                            <i class="fas fa-envelope"></i> Send OTP via Email
+                        </button>
+                    </div>
+                </div>
+
+                <!-- OTP Method Selection -->
+                <div class="otp-method-selection">
+                    <label>Verify via:</label>
+                    <div class="otp-method-buttons">
+                        <button type="button" id="verifyPhoneBtn" class="otp-method-btn active">
+                            <i class="fas fa-mobile-alt"></i> Phone
+                        </button>
+                        <button type="button" id="verifyEmailBtn" class="otp-method-btn">
+                            <i class="fas fa-envelope"></i> Email
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Phone OTP Section -->
+                <div id="phoneOtpSection" class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <div class="phone-input-group">
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+                        <button type="button" id="sendPhoneOtpBtn" class="send-otp-btn">
+                            <i class="fas fa-paper-plane"></i> Send OTP via SMS
+                        </button>
+                    </div>
+                </div>
+
+                <!-- OTP Verification Section -->
+                <div id="otpVerificationSection" class="form-group otp-section" style="display: none;">
+                    <label for="otp">Enter OTP</label>
+                    <div class="otp-input-group">
+                        <input type="text" maxlength="1" class="otp-input" data-index="1">
+                        <input type="text" maxlength="1" class="otp-input" data-index="2">
+                        <input type="text" maxlength="1" class="otp-input" data-index="3">
+                        <input type="text" maxlength="1" class="otp-input" data-index="4">
+                        <input type="text" maxlength="1" class="otp-input" data-index="5">
+                        <input type="text" maxlength="1" class="otp-input" data-index="6">
+                    </div>
+                    <div class="otp-actions">
+                        <button type="button" id="verifyOtpBtn" class="verify-otp-btn" disabled>
+                            <i class="fas fa-check-circle"></i> Verify OTP
+                        </button>
+                        <div class="resend-otp">
+                            <span id="otpTimer"></span>
+                            <button type="button" id="resendOtpBtn" class="resend-otp-btn" disabled>
+                                <i class="fas fa-redo"></i> Resend OTP
+                            </button>
+                        </div>
+                    </div>
+                    <div id="otpMessage" class="otp-message"></div>
+                </div>
+
+                <div class="form-group" id="batchTimingGroup" style="display: none;">
+                    <label for="batchTiming">Available Batch Timings</label>
+                    <select id="batchTiming" name="batchTiming" required>
+                        <option value="">Select Batch Timing</option>
+                    </select>
+                    <div class="batch-details">
+                        <p class="batch-info">
+                            <i class="fas fa-calendar-alt"></i> Start Date: <span id="batchStartDate"></span>
+                        </p>
+                        <p class="batch-info">
+                            <i class="fas fa-clock"></i> Class Timing: <span id="batchClassTiming"></span>
+                        </p>
+                        <p class="batch-info">
+                            <i class="fas fa-users"></i> Available Seats: <span id="batchSeats"></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" rows="3" required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <select id="state" name="state" required>
+                            <option value="">Select State</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <select id="city" name="city" required disabled>
+                            <option value="">Select City</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pincode">Pincode</label>
+                        <input type="text" id="pincode" name="pincode" pattern="[0-9]{6}" required>
+                    </div>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="teacher-management" class="teacher-management-section">
+        <div class="section-header">
+            <h2>Teacher Management System</h2>
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="attendance">
+                    <i class="fas fa-calendar-check"></i> Attendance
+                </button>
+                <button class="tab-btn" data-tab="payroll">
+                    <i class="fas fa-money-check-alt"></i> Payroll
+                </button>
+            </div>
+        </div>
+
+        <!-- Attendance Tab -->
+        <div class="tab-content active" id="attendanceTab">
+            <div class="attendance-controls">
+                <div class="date-filter">
+                    <input type="month" id="attendanceMonth" class="month-picker">
+                </div>
+                <button class="action-btn" id="markAttendanceBtn">
+                    <i class="fas fa-user-check"></i> Mark Attendance
+                </button>
+            </div>
+
+            <div class="attendance-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Teacher ID</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Check In</th>
+                            <th>Check Out</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendanceTableBody">
+                        <!-- Attendance records will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Payroll Tab -->
+        <div class="tab-content" id="payrollTab">
+            <div class="payroll-controls">
+                <div class="date-filter">
+                    <input type="month" id="payrollMonth" class="month-picker">
+                </div>
+                <button class="action-btn" id="generatePayrollBtn">
+                    <i class="fas fa-file-invoice-dollar"></i> Generate Payroll
+                </button>
+            </div>
+
+            <div class="payroll-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Teacher ID</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Basic Salary</th>
+                            <th>Allowances</th>
+                            <th>Deductions</th>
+                            <th>Net Salary</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="payrollTableBody">
+                        <!-- Payroll records will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Mark Attendance Modal -->
+        <div id="attendanceModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Mark Attendance</h3>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <form id="attendanceForm">
+                        <div class="form-group">
+                            <label for="teacherId">Teacher ID</label>
+                            <input type="text" id="teacherId" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="attendanceDate">Date</label>
+                            <input type="date" id="attendanceDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="attendanceStatus">Status</label>
+                            <select id="attendanceStatus" required>
+                                <option value="present">Present</option>
+                                <option value="absent">Absent</option>
+                                <option value="leave">Leave</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkInTime">Check In Time</label>
+                            <input type="time" id="checkInTime">
+                        </div>
+                        <div class="form-group">
+                            <label for="checkOutTime">Check Out Time</label>
+                            <input type="time" id="checkOutTime">
+                        </div>
+                        <button type="submit" class="submit-btn">Save Attendance</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Generate Payroll Modal -->
+        <div id="payrollModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Generate Payroll</h3>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <form id="payrollForm">
+                        <div class="form-group">
+                            <label for="payrollTeacherId">Teacher ID</label>
+                            <input type="text" id="payrollTeacherId" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="basicSalary">Basic Salary</label>
+                            <input type="number" id="basicSalary" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="allowances">Allowances</label>
+                            <div class="allowance-items">
+                                <div class="allowance-item">
+                                    <input type="text" placeholder="Allowance Name">
+                                    <input type="number" placeholder="Amount">
+                                    <button type="button" class="remove-btn"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                            <button type="button" class="add-allowance-btn">
+                                <i class="fas fa-plus"></i> Add Allowance
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            <label for="deductions">Deductions</label>
+                            <div class="deduction-items">
+                                <div class="deduction-item">
+                                    <input type="text" placeholder="Deduction Name">
+                                    <input type="number" placeholder="Amount">
+                                    <button type="button" class="remove-btn"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                            <button type="button" class="add-deduction-btn">
+                                <i class="fas fa-plus"></i> Add Deduction
+                            </button>
+                        </div>
+                        <button type="submit" class="submit-btn">Generate Payroll</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="idCard" class="content-section" style="display: none;">
+        <h2>Student ID Card</h2>
+        
+        <!-- Personal ID Card Section -->
+        <div class="personal-id-section">
+            <div class="photo-upload-container">
+                <div class="current-photo">
+                    <img id="currentPhoto" src="default-avatar.png" alt="Your Photo">
+                </div>
+                <div class="upload-controls">
+                    <input type="file" id="photoInput" accept="image/*" style="display: none">
+                    <button class="upload-btn" onclick="document.getElementById('photoInput').click()">
+                        <i class="fas fa-camera"></i> Upload Photo
+                    </button>
+                    <p class="photo-hint">Upload a passport size photo (max 2MB)</p>
+                </div>
+            </div>
+            <button class="view-my-id-btn" onclick="showMyIdCard()">
+                <i class="fas fa-id-card"></i> View My ID Card
+            </button>
+        </div>
+
+        <div class="section-divider">
+            <span>OR</span>
+        </div>
+
+        <!-- Student Search Section -->
+        <div class="search-section">
+            <h3>Search Other Students</h3>
+            <div class="search-container">
+                <input type="text" id="studentSearch" placeholder="Search by Student ID or Name...">
+                <button onclick="searchStudent()"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="student-list">
+                <table id="studentTable">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Course</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody">
+                        <!-- Student rows will be added here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="idCard" class="content-section" style="display: none;">
+        <h2>Student ID Cards</h2>
+        <div class="search-container">
+            <input type="text" id="studentSearch" placeholder="Search by Student ID or Name...">
+            <button onclick="searchStudent()"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="student-list">
+            <table id="studentTable">
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>Course</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTableBody">
+                    <!-- Student rows will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ID Card Modal -->
+    <div id="idCardModal" class="modal">
+        <div class="modal-content id-card-modal">
+            <span class="close">&times;</span>
+            <div class="id-card">
+                <div class="id-card-front">
+                    <div class="college-header">
+                        <img src="logo.png" alt="College Logo" class="college-logo">
+                        <div class="college-info">
+                            <h2>College Name</h2>
+                            <p>Address Line 1, City, State - PIN</p>
+                        </div>
+                    </div>
+                    <div class="student-photo">
+                        <img id="studentPhoto" src="default-avatar.png" alt="Student Photo">
+                    </div>
+                    <div class="student-details">
+                        <div class="detail-row">
+                            <label>Student ID:</label>
+                            <span id="idCardStudentId"></span>
+                        </div>
+                        <div class="detail-row">
+                            <label>Name:</label>
+                            <span id="idCardName"></span>
+                        </div>
+                        <div class="detail-row">
+                            <label>Course:</label>
+                            <span id="idCardCourse"></span>
+                        </div>
+                        <div class="detail-row">
+                            <label>Valid Till:</label>
+                            <span id="idCardValidity"></span>
+                        </div>
+                    </div>
+                    <div class="barcode">
+                        <!-- Barcode will be generated dynamically -->
+                    </div>
+                    <div class="signature">
+                        <div class="sign-line"></div>
+                        <p>Principal's Signature</p>
+                    </div>
+                </div>
+            </div>
+            <div class="id-card-actions">
+                <button class="print-btn" onclick="printIdCard()">
+                    <i class="fas fa-print"></i> Print ID Card
+                </button>
+                <button class="download-btn" onclick="downloadIdCard()">
+                    <i class="fas fa-download"></i> Download
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>Email: info@amitcoaching.com</p>
+                <p>Phone: +91 1234567890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Raniganj Institute of Information Technology (RiiT). All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

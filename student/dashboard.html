@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - RiiT</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <div class="student-avatar">
+                    <img src="../images/avatar-placeholder.png" alt="Student Avatar" id="studentAvatar">
+                    <div class="status-badge online"></div>
+                </div>
+                <div class="student-info">
+                    <h2 id="studentName">Student Name</h2>
+                    <p id="studentId">ID: BCA2023001</p>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#overview" class="nav-item active">
+                    <i class="fas fa-home"></i> Overview
+                </a>
+                <a href="#attendance" class="nav-item">
+                    <i class="fas fa-user-check"></i> Attendance
+                </a>
+                <a href="#assignments" class="nav-item">
+                    <i class="fas fa-tasks"></i> Assignments
+                </a>
+                <a href="#exams" class="nav-item">
+                    <i class="fas fa-file-alt"></i> Exams
+                </a>
+                <a href="#results" class="nav-item">
+                    <i class="fas fa-chart-bar"></i> Results
+                </a>
+                <a href="#timetable" class="nav-item">
+                    <i class="fas fa-calendar-alt"></i> Timetable
+                </a>
+                <a href="#fees" class="nav-item">
+                    <i class="fas fa-money-bill-wave"></i> Fees
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="#settings" class="nav-item">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+                <a href="../index.html" class="nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="header-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button class="message-btn">
+                        <i class="fas fa-envelope"></i>
+                        <span class="notification-badge">5</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Overview Section -->
+                <section id="overview" class="dashboard-section active">
+                    <div class="section-header">
+                        <h2>Dashboard Overview</h2>
+                        <p class="current-date" id="currentDate"></p>
+                    </div>
+
+                    <div class="quick-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Attendance</h3>
+                                <p class="stat-value">85%</p>
+                                <p class="stat-change positive">↑ 3% This Month</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>CGPA</h3>
+                                <p class="stat-value">8.5</p>
+                                <p class="stat-change positive">↑ 0.2 This Sem</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Assignments</h3>
+                                <p class="stat-value">12/15</p>
+                                <p class="stat-change">Due: 3</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Fees Status</h3>
+                                <p class="stat-value">Paid</p>
+                                <p class="stat-change positive">Next: July 2025</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-widgets">
+                        <!-- Upcoming Classes -->
+                        <div class="widget">
+                            <div class="widget-header">
+                                <h3>Today's Classes</h3>
+                                <a href="#timetable" class="view-all">View All</a>
+                            </div>
+                            <div class="class-list">
+                                <div class="class-item">
+                                    <div class="class-time">09:00 AM</div>
+                                    <div class="class-info">
+                                        <h4>Web Development</h4>
+                                        <p>Room 301 • Mr. Sharma</p>
+                                    </div>
+                                    <div class="class-status ongoing">Ongoing</div>
+                                </div>
+                                <div class="class-item">
+                                    <div class="class-time">11:00 AM</div>
+                                    <div class="class-info">
+                                        <h4>Database Management</h4>
+                                        <p>Room 205 • Mrs. Gupta</p>
+                                    </div>
+                                    <div class="class-status upcoming">Upcoming</div>
+                                </div>
+                                <div class="class-item">
+                                    <div class="class-time">02:00 PM</div>
+                                    <div class="class-info">
+                                        <h4>Java Programming</h4>
+                                        <p>Lab 102 • Mr. Kumar</p>
+                                    </div>
+                                    <div class="class-status upcoming">Upcoming</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Assignments -->
+                        <div class="widget">
+                            <div class="widget-header">
+                                <h3>Recent Assignments</h3>
+                                <a href="#assignments" class="view-all">View All</a>
+                            </div>
+                            <div class="assignment-list">
+                                <div class="assignment-item">
+                                    <div class="assignment-icon">
+                                        <i class="fas fa-file-code"></i>
+                                    </div>
+                                    <div class="assignment-info">
+                                        <h4>Create a Portfolio Website</h4>
+                                        <p>Web Development • Due: Tomorrow</p>
+                                    </div>
+                                    <div class="assignment-status pending">Pending</div>
+                                </div>
+                                <div class="assignment-item">
+                                    <div class="assignment-icon">
+                                        <i class="fas fa-database"></i>
+                                    </div>
+                                    <div class="assignment-info">
+                                        <h4>SQL Query Assignment</h4>
+                                        <p>Database • Due: 3 Days</p>
+                                    </div>
+                                    <div class="assignment-status submitted">Submitted</div>
+                                </div>
+                                <div class="assignment-item">
+                                    <div class="assignment-icon">
+                                        <i class="fas fa-laptop-code"></i>
+                                    </div>
+                                    <div class="assignment-info">
+                                        <h4>Java Mini Project</h4>
+                                        <p>Java Programming • Due: Next Week</p>
+                                    </div>
+                                    <div class="assignment-status in-progress">In Progress</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Announcements -->
+                    <div class="announcements-section">
+                        <div class="widget-header">
+                            <h3>Recent Announcements</h3>
+                        </div>
+                        <div class="announcement-list">
+                            <div class="announcement-item">
+                                <div class="announcement-icon important">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                </div>
+                                <div class="announcement-content">
+                                    <h4>Mid-Semester Exam Schedule</h4>
+                                    <p>Mid-semester examinations will begin from 15th February 2025. Schedule has been uploaded.</p>
+                                    <span class="announcement-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="announcement-item">
+                                <div class="announcement-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <div class="announcement-content">
+                                    <h4>Technical Symposium</h4>
+                                    <p>Annual technical symposium "TechVista 2025" registration is now open.</p>
+                                    <span class="announcement-time">1 day ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="../script.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

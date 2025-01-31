@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance Management - RiiT</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="attendance.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="attendance-container">
+        <header class="attendance-header">
+            <h1><i class="fas fa-user-check"></i> Student Attendance Management</h1>
+            <div class="date-picker">
+                <label for="attendanceDate">Date:</label>
+                <input type="date" id="attendanceDate">
+            </div>
+        </header>
+
+        <div class="filters">
+            <div class="filter-group">
+                <select id="courseFilter">
+                    <option value="">Select Course</option>
+                    <option value="bca">BCA</option>
+                    <option value="mca">MCA</option>
+                    <option value="btech">B.Tech</option>
+                </select>
+                <select id="semesterFilter">
+                    <option value="">Select Semester</option>
+                    <option value="1">1st Semester</option>
+                    <option value="2">2nd Semester</option>
+                    <option value="3">3rd Semester</option>
+                    <option value="4">4th Semester</option>
+                </select>
+                <select id="subjectFilter">
+                    <option value="">Select Subject</option>
+                </select>
+            </div>
+            <button id="generateReport" class="report-btn">
+                <i class="fas fa-file-alt"></i> Generate Report
+            </button>
+        </div>
+
+        <div class="attendance-list">
+            <table id="attendanceTable">
+                <thead>
+                    <tr>
+                        <th>Roll No</th>
+                        <th>Student Name</th>
+                        <th>Status</th>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+                <tbody id="attendanceTableBody">
+                    <!-- Will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="attendance-summary">
+            <div class="summary-item">
+                <span class="label">Present:</span>
+                <span id="presentCount" class="count">0</span>
+            </div>
+            <div class="summary-item">
+                <span class="label">Absent:</span>
+                <span id="absentCount" class="count">0</span>
+            </div>
+            <div class="summary-item">
+                <span class="label">Total:</span>
+                <span id="totalCount" class="count">0</span>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button id="saveAttendance" class="save-btn">
+                <i class="fas fa-save"></i> Save Attendance
+            </button>
+            <button id="exportAttendance" class="export-btn">
+                <i class="fas fa-file-export"></i> Export to Excel
+            </button>
+        </div>
+    </div>
+    <script src="attendance.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCA Course Details - RiiT</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="courses.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="course-container">
+        <div class="course-sidebar">
+            <div class="course-title">
+                <i class="fas fa-laptop-code"></i>
+                <h1>BCA</h1>
+                <p>Bachelor of Computer Applications</p>
+            </div>
+            <div class="semester-list">
+                <h2>Semesters</h2>
+                <div class="semester-scroll">
+                    <a href="#sem1" class="semester-tab active">
+                        <span class="sem-number">1</span>
+                        <span class="sem-text">First Semester</span>
+                    </a>
+                    <a href="#sem2" class="semester-tab">
+                        <span class="sem-number">2</span>
+                        <span class="sem-text">Second Semester</span>
+                    </a>
+                    <a href="#sem3" class="semester-tab">
+                        <span class="sem-number">3</span>
+                        <span class="sem-text">Third Semester</span>
+                    </a>
+                    <a href="#sem4" class="semester-tab">
+                        <span class="sem-number">4</span>
+                        <span class="sem-text">Fourth Semester</span>
+                    </a>
+                    <a href="#sem5" class="semester-tab">
+                        <span class="sem-number">5</span>
+                        <span class="sem-text">Fifth Semester</span>
+                    </a>
+                    <a href="#sem6" class="semester-tab">
+                        <span class="sem-number">6</span>
+                        <span class="sem-text">Sixth Semester</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="course-content">
+            <div id="sem1" class="semester-content active">
+                <h2>First Semester</h2>
+                <div class="subjects-grid">
+                    <div class="subject-card">
+                        <div class="subject-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h3>Programming in C</h3>
+                            <p>Credits: 4</p>
+                            <div class="subject-details">
+                                <span><i class="fas fa-clock"></i> 60 Hours</span>
+                                <span><i class="fas fa-book"></i> Core</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subject-card">
+                        <div class="subject-icon">
+                            <i class="fas fa-square-root-alt"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h3>Mathematics</h3>
+                            <p>Credits: 4</p>
+                            <div class="subject-details">
+                                <span><i class="fas fa-clock"></i> 60 Hours</span>
+                                <span><i class="fas fa-book"></i> Core</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subject-card">
+                        <div class="subject-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h3>Digital Electronics</h3>
+                            <p>Credits: 4</p>
+                            <div class="subject-details">
+                                <span><i class="fas fa-clock"></i> 60 Hours</span>
+                                <span><i class="fas fa-book"></i> Core</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- More semester content will be dynamically loaded -->
+        </div>
+    </div>
+    <script src="../script.js"></script>
+    <script src="courses.js"></script>
+</body>
+</html>
